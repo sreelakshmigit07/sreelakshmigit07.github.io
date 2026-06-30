@@ -1,0 +1,400 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Sreelakshmi VS — Senior Java Backend Engineer</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500;600&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg: #0a0d10;
+    --surface: #12161b;
+    --surface-2: #181d24;
+    --line: #232a32;
+    --text: #e7ebee;
+    --muted: #8b97a3;
+    --accent: #4fd1ae;
+    --accent-dim: #2c5048;
+    --warn: #e0a458;
+  }
+  *{box-sizing:border-box; margin:0; padding:0;}
+  html{scroll-behavior:smooth;}
+  body{
+    background:var(--bg);
+    color:var(--text);
+    font-family:'Inter', sans-serif;
+    line-height:1.6;
+    -webkit-font-smoothing:antialiased;
+  }
+  ::selection{background:var(--accent-dim); color:var(--text);}
+
+  h1,h2,h3{ font-family:'IBM Plex Sans', sans-serif; font-weight:600; letter-spacing:-0.01em; }
+  .mono{ font-family:'IBM Plex Mono', monospace; }
+
+  a{ color:inherit; text-decoration:none; }
+
+  .wrap{ max-width:920px; margin:0 auto; padding:0 28px; }
+
+  /* ---------- NAV ---------- */
+  nav{
+    position:sticky; top:0; z-index:50;
+    background:rgba(10,13,16,0.85);
+    backdrop-filter:blur(8px);
+    border-bottom:1px solid var(--line);
+  }
+  nav .wrap{ display:flex; align-items:center; justify-content:space-between; height:60px; }
+  .brand{ font-family:'IBM Plex Mono', monospace; font-size:14px; color:var(--accent); }
+  .brand span{ color:var(--muted); }
+  nav ul{ list-style:none; display:flex; gap:28px; }
+  nav a{ font-size:13.5px; color:var(--muted); transition:color .15s; }
+  nav a:hover{ color:var(--text); }
+
+  /* ---------- HERO ---------- */
+  header.hero{ padding:84px 0 56px; border-bottom:1px solid var(--line); }
+  .status-tag{
+    display:inline-flex; align-items:center; gap:8px;
+    font-family:'IBM Plex Mono', monospace; font-size:12px; color:var(--accent);
+    background:rgba(79,209,174,0.08); border:1px solid var(--accent-dim);
+    padding:5px 12px; border-radius:20px; margin-bottom:24px;
+  }
+  .dot{ width:7px; height:7px; border-radius:50%; background:var(--accent); box-shadow:0 0 8px var(--accent); animation:pulse 2s infinite; }
+  @keyframes pulse{ 0%,100%{opacity:1;} 50%{opacity:0.35;} }
+
+  .hero h1{ font-size:46px; line-height:1.1; margin-bottom:10px; }
+  .hero .role{ font-size:19px; color:var(--muted); margin-bottom:22px; font-weight:500; }
+  .hero p.lede{ max-width:620px; color:#b6c0c9; font-size:15.5px; margin-bottom:32px; }
+
+  .hero-links{ display:flex; flex-wrap:wrap; gap:12px; }
+  .btn{
+    font-size:13.5px; padding:10px 18px; border-radius:6px;
+    border:1px solid var(--line); display:inline-flex; align-items:center; gap:8px;
+    transition: border-color .15s, background .15s;
+  }
+  .btn:hover{ border-color:var(--accent); background:var(--surface); }
+  .btn.primary{ background:var(--accent); color:#06110d; border-color:var(--accent); font-weight:600; }
+  .btn.primary:hover{ opacity:0.9; background:var(--accent); }
+
+  /* ---------- METRICS STRIP (signature element) ---------- */
+  .metrics{
+    display:grid; grid-template-columns:repeat(4,1fr);
+    border:1px solid var(--line); border-radius:10px; overflow:hidden;
+    margin-top:48px; background:var(--surface);
+  }
+  .metric{
+    padding:20px 18px; border-right:1px solid var(--line); position:relative;
+  }
+  .metric:last-child{ border-right:none; }
+  .metric .val{ font-family:'IBM Plex Mono', monospace; font-size:24px; color:var(--accent); font-weight:600; }
+  .metric .label{ font-size:11.5px; color:var(--muted); margin-top:4px; text-transform:uppercase; letter-spacing:.04em; }
+
+  /* ---------- SECTION GENERIC ---------- */
+  section{ padding:64px 0; border-bottom:1px solid var(--line); }
+  .eyebrow{
+    font-family:'IBM Plex Mono', monospace; font-size:12px; color:var(--accent);
+    text-transform:uppercase; letter-spacing:.08em; margin-bottom:10px;
+  }
+  section h2{ font-size:26px; margin-bottom:36px; }
+
+  /* ---------- EXPERIENCE ---------- */
+  .job{ display:grid; grid-template-columns:160px 1fr; gap:24px; padding:28px 0; border-top:1px solid var(--line); }
+  .job:first-of-type{ border-top:none; }
+  .job .period{ font-family:'IBM Plex Mono', monospace; font-size:12.5px; color:var(--muted); padding-top:3px; }
+  .job .period .current{ color:var(--accent); }
+  .job h3{ font-size:17px; margin-bottom:2px; }
+  .job .org{ color:var(--muted); font-size:13.5px; margin-bottom:14px; }
+  .job ul{ list-style:none; }
+  .job li{ position:relative; padding-left:18px; margin-bottom:9px; font-size:14.5px; color:#c4ccd3; }
+  .job li::before{ content:"›"; position:absolute; left:0; color:var(--accent); font-weight:600; }
+
+  /* ---------- SKILLS ---------- */
+  .skill-grid{ display:grid; grid-template-columns:1fr 1fr; gap:28px 40px; }
+  .skill-cat h4{ font-size:12px; text-transform:uppercase; letter-spacing:.06em; color:var(--muted); margin-bottom:12px; font-family:'IBM Plex Mono', monospace; }
+  .tags{ display:flex; flex-wrap:wrap; gap:8px; }
+  .tag{
+    font-size:13px; padding:6px 12px; border-radius:5px;
+    background:var(--surface); border:1px solid var(--line); color:#cdd5db;
+  }
+
+  /* ---------- PROJECTS / GITHUB ---------- */
+  .project-card{
+    border:1px solid var(--line); border-radius:10px; padding:28px;
+    background:var(--surface); display:flex; justify-content:space-between; align-items:center; gap:24px;
+    flex-wrap:wrap;
+  }
+  .project-card h3{ font-size:18px; margin-bottom:8px; }
+  .project-card p{ color:var(--muted); font-size:14px; max-width:480px; }
+  .project-card .btn{ flex-shrink:0; }
+
+  .highlight-row{ display:grid; grid-template-columns:repeat(3,1fr); gap:16px; margin-top:24px; }
+  .highlight{ border:1px solid var(--line); border-radius:8px; padding:18px; background:var(--surface-2); }
+  .highlight .num{ font-family:'IBM Plex Mono', monospace; color:var(--accent); font-size:20px; font-weight:600; }
+  .highlight .desc{ font-size:13px; color:var(--muted); margin-top:6px; }
+
+  /* ---------- EDUCATION / CERTS ---------- */
+  .ed-row{ display:flex; justify-content:space-between; gap:20px; padding:18px 0; border-top:1px solid var(--line); flex-wrap:wrap; }
+  .ed-row:first-of-type{ border-top:none; }
+  .ed-row h3{ font-size:15.5px; }
+  .ed-row .org{ color:var(--muted); font-size:13.5px; }
+  .ed-row .period{ font-family:'IBM Plex Mono', monospace; font-size:12.5px; color:var(--muted); white-space:nowrap; }
+
+  /* ---------- FOOTER / CONTACT ---------- */
+  footer{ padding:64px 0 48px; }
+  footer h2{ font-size:26px; margin-bottom:14px; }
+  footer p{ color:var(--muted); max-width:480px; margin-bottom:28px; font-size:14.5px; }
+  .contact-row{ display:flex; flex-wrap:wrap; gap:14px; margin-bottom:48px; }
+  .copyright{ font-size:12.5px; color:var(--muted); font-family:'IBM Plex Mono', monospace; }
+
+  @media (max-width:720px){
+    .hero h1{ font-size:32px; }
+    .metrics{ grid-template-columns:1fr 1fr; }
+    .metric:nth-child(2){ border-right:none; }
+    .job{ grid-template-columns:1fr; gap:6px; }
+    .skill-grid{ grid-template-columns:1fr; }
+    .highlight-row{ grid-template-columns:1fr; }
+    nav ul{ gap:16px; }
+    .nav-links-text{ display:none; }
+  }
+
+  @media (prefers-reduced-motion: reduce){
+    .dot{ animation:none; }
+  }
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="wrap">
+    <div class="brand">sreelakshmi<span>.dev</span></div>
+    <ul>
+      <li><a href="#experience">Experience</a></li>
+      <li><a href="#skills">Skills</a></li>
+      <li><a href="#work">Work</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+  </div>
+</nav>
+
+<header class="hero">
+  <div class="wrap">
+    <div class="status-tag"><span class="dot"></span> Available for immediate joining</div>
+    <h1>Sreelakshmi VS</h1>
+    <div class="role">Senior Java Backend Engineer · Dubai, UAE</div>
+    <p class="lede">Backend engineer with 7.5 years building scalable, secure, high-performance systems across FinTech, payments, and travel domains — most recently at IBM, working on the EASE Java web application server. Deep expertise in Java, Spring Boot, microservices, and event-driven architecture.</p>
+    <div class="hero-links">
+      <a class="btn primary" href="mailto:sreelakshmivelayil@gmail.com">Email me</a>
+      <a class="btn" href="https://github.com/sreelakshmigit07" target="_blank" rel="noopener">GitHub ↗</a>
+      <a class="btn" href="https://www.linkedin.com/in/sreelakshmi-vs-30b991157/" target="_blank" rel="noopener">LinkedIn ↗</a>
+    </div>
+
+    <div class="metrics">
+      <div class="metric"><div class="val">7.5 yrs</div><div class="label">Backend Engineering</div></div>
+      <div class="metric"><div class="val">30+</div><div class="label">REST APIs Shipped</div></div>
+      <div class="metric"><div class="val">80%</div><div class="label">Critical Issues Resolved</div></div>
+      <div class="metric"><div class="val">150+</div><div class="label">Code Modules Reviewed</div></div>
+    </div>
+  </div>
+</header>
+
+<section id="experience">
+  <div class="wrap">
+    <div class="eyebrow">Career</div>
+    <h2>Experience</h2>
+
+    <div class="job">
+      <div class="period">03/2025 — 03/2026</div>
+      <div>
+        <h3>Software Developer</h3>
+        <div class="org">IBM · Kochi, India</div>
+        <ul>
+          <li>Spearheaded design and implementation of new features for IBM's EASE Java Web Application Server.</li>
+          <li>Performed in-depth security analysis and proposed enhancements to strengthen product security posture.</li>
+          <li>Monitored builds and deployments across environments via CI/CD pipelines; automated configuration with Ansible.</li>
+          <li>Provided on-call production support, diagnosing critical issues and maintaining system uptime.</li>
+          <li>Mentored junior engineers and led architecture discussions for new feature development.</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="job">
+      <div class="period">01/2023 — 02/2025</div>
+      <div>
+        <h3>Developer 3 — Software Engineering, Payments (Experian)</h3>
+        <div class="org">UST Global · Kochi / Thiruvananthapuram, India</div>
+        <ul>
+          <li>Designed and developed an Admin Console UI for platform configuration and management.</li>
+          <li>Built and deployed 30+ RESTful APIs and background schedulers using Spring Boot.</li>
+          <li>Implemented event-driven architecture with AWS Lambda and SQS for async processing and failure recovery.</li>
+          <li>Secured API communication using OAuth2, JWT, and industry best practices.</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="job">
+      <div class="period">04/2021 — 01/2023</div>
+      <div>
+        <h3>Developer 2 — Software Engineering, Payments (TSYS / Global Payments)</h3>
+        <div class="org">UST Global · Thiruvananthapuram, India</div>
+        <ul>
+          <li>Contributed to modernization of legacy applications, improving performance and scalability.</li>
+          <li>Designed backend services for payment processing, handling secure financial transactions and external network integrations.</li>
+          <li>Built and optimized transaction workflows for high reliability and fault tolerance in distributed systems.</li>
+          <li>Collaborated in an Agile team — sprint planning, stand-ups, retrospectives.</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="job">
+      <div class="period">09/2018 — 03/2021</div>
+      <div>
+        <h3>Software Engineer — Travel & Cruise (MSC Cruises Booking System)</h3>
+        <div class="org">IBS Software Pvt. Ltd. · Trivandrum, India</div>
+        <ul>
+          <li>Designed a transaction-heavy booking system handling real-time reservations under concurrent user load.</li>
+          <li>Enhanced a restaurant reservation system tailored for cruise operations.</li>
+          <li>Delivered a fully web-based booking solution that increased sales conversion by 40%.</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="skills">
+  <div class="wrap">
+    <div class="eyebrow">Toolbox</div>
+    <h2>Technical Skills</h2>
+    <div class="skill-grid">
+      <div class="skill-cat">
+        <h4>Languages & Frameworks</h4>
+        <div class="tags">
+          <span class="tag">Java 7/8/11/17</span>
+          <span class="tag">Spring Boot</span>
+          <span class="tag">Spring MVC</span>
+          <span class="tag">Spring Security</span>
+          <span class="tag">Spring Cloud</span>
+          <span class="tag">Jakarta EE</span>
+          <span class="tag">Hibernate / JPA</span>
+          <span class="tag">Microservices</span>
+        </div>
+      </div>
+      <div class="skill-cat">
+        <h4>API & Integration</h4>
+        <div class="tags">
+          <span class="tag">REST APIs</span>
+          <span class="tag">SOAP API</span>
+          <span class="tag">Swagger / OpenAPI</span>
+          <span class="tag">Apache Kafka</span>
+          <span class="tag">OAuth2 / JWT</span>
+        </div>
+      </div>
+      <div class="skill-cat">
+        <h4>Cloud & DevOps</h4>
+        <div class="tags">
+          <span class="tag">Docker</span>
+          <span class="tag">Kubernetes</span>
+          <span class="tag">Jenkins</span>
+          <span class="tag">Argo CD</span>
+          <span class="tag">AWS Lambda</span>
+          <span class="tag">Amazon SQS</span>
+          <span class="tag">CloudWatch</span>
+          <span class="tag">Amazon S3</span>
+          <span class="tag">IBM Cloud</span>
+          <span class="tag">Ansible</span>
+          <span class="tag">Grafana</span>
+        </div>
+      </div>
+      <div class="skill-cat">
+        <h4>Databases, Tools & AI</h4>
+        <div class="tags">
+          <span class="tag">Oracle</span>
+          <span class="tag">PostgreSQL</span>
+          <span class="tag">MySQL</span>
+          <span class="tag">Git / Bitbucket</span>
+          <span class="tag">JIRA / Confluence</span>
+          <span class="tag">JUnit / Mockito</span>
+          <span class="tag">GitHub Copilot</span>
+          <span class="tag">IBM WCA</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="work">
+  <div class="wrap">
+    <div class="eyebrow">Repositories</div>
+    <h2>Work & Code</h2>
+
+    <div class="project-card">
+      <div>
+        <h3>GitHub — @sreelakshmigit07</h3>
+        <p>Browse my repositories for backend services, API implementations, and personal projects built with Java and Spring Boot.</p>
+      </div>
+      <a class="btn primary" href="https://github.com/sreelakshmigit07" target="_blank" rel="noopener">View Profile ↗</a>
+    </div>
+
+    <div class="highlight-row">
+      <div class="highlight">
+        <div class="num">4+</div>
+        <div class="desc">Projects delivered ahead of schedule within 6 months</div>
+      </div>
+      <div class="highlight">
+        <div class="num">40%</div>
+        <div class="desc">Increase in sales conversion via new booking system</div>
+      </div>
+      <div class="highlight">
+        <div class="num">100%</div>
+        <div class="desc">On-call ownership of production stability & uptime</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="education">
+  <div class="wrap">
+    <div class="eyebrow">Background</div>
+    <h2>Education & Certification</h2>
+
+    <div class="ed-row">
+      <div>
+        <h3>Bachelor of Technology, Information Technology</h3>
+        <div class="org">Government Engineering College, Barton Hill, Thiruvananthapuram</div>
+      </div>
+      <div class="period">08/2014 — 08/2018</div>
+    </div>
+
+    <div class="ed-row">
+      <div>
+        <h3>Liberty Developer Essentials</h3>
+        <div class="org">IBM — Cloud-native Java application development using Liberty runtime</div>
+      </div>
+      <div class="period">Certified</div>
+    </div>
+
+    <div class="ed-row">
+      <div>
+        <h3>Languages</h3>
+        <div class="org">English & Malayalam (Proficient) · Hindi (Intermediate)</div>
+      </div>
+      <div class="period"></div>
+    </div>
+  </div>
+</section>
+
+<footer id="contact">
+  <div class="wrap">
+    <div class="eyebrow">Get in touch</div>
+    <h2>Let's build something reliable.</h2>
+    <p>Open to backend engineering roles in Dubai, UAE and remote. Available for immediate joining.</p>
+    <div class="contact-row">
+      <a class="btn primary" href="mailto:sreelakshmivelayil@gmail.com">sreelakshmivelayil@gmail.com</a>
+      <a class="btn" href="tel:+971505721632">+971 50 572 1632</a>
+      <a class="btn" href="https://www.linkedin.com/in/sreelakshmi-vs-30b991157/" target="_blank" rel="noopener">LinkedIn ↗</a>
+      <a class="btn" href="https://github.com/sreelakshmigit07" target="_blank" rel="noopener">GitHub ↗</a>
+    </div>
+    <div class="copyright">© 2026 Sreelakshmi VS — Built with care.</div>
+  </div>
+</footer>
+
+</body>
+</html>
