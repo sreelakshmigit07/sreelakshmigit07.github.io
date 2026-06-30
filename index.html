@@ -102,6 +102,12 @@
   .job .period{ font-family:'IBM Plex Mono', monospace; font-size:12.5px; color:var(--muted); padding-top:3px; }
   .job .period .current{ color:var(--accent); }
   .job h3{ font-size:17px; margin-bottom:2px; }
+  .job-head{ display:flex; align-items:center; gap:10px; margin-bottom:2px; }
+  .job-head h3{ margin-bottom:0; }
+  .logo{
+    width:28px; height:28px; border-radius:6px; object-fit:contain;
+    background:#fff; padding:3px; flex-shrink:0; border:1px solid var(--line);
+  }
   .job .org{ color:var(--muted); font-size:13.5px; margin-bottom:14px; }
   .job ul{ list-style:none; }
   .job li{ position:relative; padding-left:18px; margin-bottom:9px; font-size:14.5px; color:#c4ccd3; }
@@ -204,7 +210,10 @@
     <div class="job">
       <div class="period">03/2025 — 03/2026</div>
       <div>
-        <h3>Software Developer</h3>
+        <div class="job-head">
+          <img class="logo" src="https://logo.clearbit.com/ibm.com" alt="IBM logo" onerror="this.style.display='none'">
+          <h3>Software Developer</h3>
+        </div>
         <div class="org">IBM · Kochi, India</div>
         <ul>
           <li>Spearheaded design and implementation of new features for IBM's EASE Java Web Application Server.</li>
@@ -219,7 +228,10 @@
     <div class="job">
       <div class="period">01/2023 — 02/2025</div>
       <div>
-        <h3>Developer 3 — Software Engineering, Payments (Experian)</h3>
+        <div class="job-head">
+          <img class="logo" src="https://logo.clearbit.com/ust.com" alt="UST Global logo" onerror="this.style.display='none'">
+          <h3>Developer 3 — Software Engineering, Payments (Experian)</h3>
+        </div>
         <div class="org">UST Global · Kochi / Thiruvananthapuram, India</div>
         <ul>
           <li>Designed and developed an Admin Console UI for platform configuration and management.</li>
@@ -233,7 +245,10 @@
     <div class="job">
       <div class="period">04/2021 — 01/2023</div>
       <div>
-        <h3>Developer 2 — Software Engineering, Payments (TSYS / Global Payments)</h3>
+        <div class="job-head">
+          <img class="logo" src="https://logo.clearbit.com/ust.com" alt="UST Global logo" onerror="this.style.display='none'">
+          <h3>Developer 2 — Software Engineering, Payments (TSYS / Global Payments)</h3>
+        </div>
         <div class="org">UST Global · Thiruvananthapuram, India</div>
         <ul>
           <li>Contributed to modernization of legacy applications, improving performance and scalability.</li>
@@ -247,7 +262,10 @@
     <div class="job">
       <div class="period">09/2018 — 03/2021</div>
       <div>
-        <h3>Software Engineer — Travel & Cruise (MSC Cruises Booking System)</h3>
+        <div class="job-head">
+          <img class="logo" src="https://logo.clearbit.com/ibsplc.com" alt="IBS Software logo" onerror="this.style.display='none'">
+          <h3>Software Engineer — Travel & Cruise (MSC Cruises Booking System)</h3>
+        </div>
         <div class="org">IBS Software Pvt. Ltd. · Trivandrum, India</div>
         <ul>
           <li>Designed a transaction-heavy booking system handling real-time reservations under concurrent user load.</li>
